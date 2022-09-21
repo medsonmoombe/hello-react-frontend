@@ -1,15 +1,15 @@
-import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 
-export const fetchGreetings = createAsyncThunk("fetchGreetings", async () => {
-  const response = await fetch("/api/v1/greetings");
+export const fetchGreetings = createAsyncThunk('fetchGreetings', async () => {
+  const response = await fetch('http://127.0.0.1:3000/api/v1/greetings');
   const { greeting } = await response.json();
   return greeting;
 });
 
 export const greetingSlice = createSlice({
-  name: "greetings",
+  name: 'greetings',
   initialState: {
-    greeting: "",
+    greeting: '',
     loading: false,
     error: false,
   },
